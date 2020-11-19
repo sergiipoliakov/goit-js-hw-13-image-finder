@@ -1,5 +1,29 @@
-fetch(
-  'https://pixabay.com/api/?key=19156782-f4e949a45fa5f59b2c0db0877&q=yellow+flowers&image_type=photo',
-)
-  .then(res => res.json())
-  .then(console.log);
+import './css/common.css';
+// import './js/fetch-url';
+import PixabayApiServise from './js/apiService';
+
+const refs = {
+  searchForm: document.querySelector('#search-form'),
+  galerrylist: document.querySelector('.gallery'),
+  loadMoreBtn: document.querySelector('[data-action="load-more"]'),
+};
+// console.log(refs.searchForm);
+// console.log(refs.galerrylist);
+// console.log(refs.loadMoreBtn);
+
+const pixabayApiServise = new PixabayApiServise();
+
+refs.searchForm.addEventListener('submit', onSearch);
+refs.loadMoreBtn.addEventListener('click', onLoadMore);
+
+function onSearch(e) {
+  e.preventDefault();
+
+  pixabayApiServise.query = e.currentTarget.elements.query.value;
+  console.log(pixabayApiServise.query);
+  pixabayApiServise.fetchImages();
+}
+
+function onLoadMore() {
+  pixabayApiServise.fetchImages();
+}
