@@ -13,8 +13,11 @@ export default class NewApiService {
       .then(res => res.json())
       .then(data => {
         this.incrementPage();
-        console.log(data.hits);
+        // console.log(data.hits);
         return data.hits;
+      })
+      .catch(error => {
+        console.log(error);
       });
   }
   incrementPage() {

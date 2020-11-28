@@ -13,16 +13,3 @@ export default function onImgClick(event) {
   );
   instance.show();
 }
-
-// function onImgClick(evt) {
-//   const src = evt.target.dataset.src;
-//   console.log(src);
-
-//     if (evt.target.nodeName !== ‘IMG’)
-//     {
-//       return
-//       }
-//     const instance = basicLightbox.create(`
-//         <img class = “imgModal” src=“${evt.target.dataset.source}” width=“800” height=“600">`)
-//     instance.show()
-//   }
